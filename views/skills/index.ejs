@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Express Skills</title>
+</head>
+<body>
+	<h1>Skills</h1>
+
+    <a href="/skills/new">New Skill</a> 
+
+    <ul>
+      <% skills.forEach(function(s) { %>
+        <li>
+          
+          <a href="/skills/<%= s.id %>"> <%= s.skill %> </a>
+            - 
+          <%= s.done ? 'done' : 'not done' %>
+
+          <form method="POST" action="/skills/<%= s.id %>?_method=DELETE">
+            <button type="submit">X</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+	
+</body>
+</html>
